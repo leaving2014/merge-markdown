@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider, useMessages } from 'next-intl'
-import { Montserrat } from 'next/font/google'
-import { ToastProvider } from '@/components/ui/toast'
-import Analytics from '@/components/Analytics'
-import { Toaster } from '@/components/ui/toaster'
-
-const monserrat = Montserrat({ subsets: ['latin'] })
+import { unstable_setRequestLocale } from 'next-intl/server'
+import { locales } from '@/config/next-intl.config'
+import { notFound } from 'next/navigation'
 
 interface IRootLayoutProps {
 	children: React.ReactNode
@@ -22,22 +19,27 @@ export const runtime = "edge";
 export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>
 ): Promise<Metadata> {
 	const  { locale }  = params
+	if (!locales.includes(locale as typeof locales[number])) notFound()
+
 	// 导入对应语言的字典
 	const dict = await import(`../../../messages/${locale}.json`).then(module => module.default)
+	const siteUrl = 'https://www.mergemarkdown.com'
 
 	// 构建语言替代链接对象
 	const languageAlternates = {
-		en: '/en',
-		'zh-CN': '/zh-CN',
-		'zh-TW': '/zh-TW',
-		ja: '/ja',
-		ko: '/ko',
-		ru: '/ru',
-		fr: '/fr',
-		de: '/de',
-		es: '/es',
-		pt: '/pt'
+		en: siteUrl,
+		'zh-CN': `${siteUrl}/zh-CN`,
+		'zh-TW': `${siteUrl}/zh-TW`,
+		ja: `${siteUrl}/ja`,
+		ko: `${siteUrl}/ko`,
+		ru: `${siteUrl}/ru`,
+		fr: `${siteUrl}/fr`,
+		de: `${siteUrl}/de`,
+		es: `${siteUrl}/es`,
+		pt: `${siteUrl}/pt`,
+		'x-default': siteUrl
 	}
+	const canonicalUrl = locale === 'en' ? siteUrl : `${siteUrl}/${locale}`
 
 	return {
 		title: dict.metadata.title,
@@ -51,6 +53,7 @@ export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>
 		openGraph: {
 			title: dict.metadata.title,
 			description: dict.metadata.description,
+			url: canonicalUrl,
 			locale: locale,
 			type: 'website',
 			images: [
@@ -69,6 +72,7 @@ export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>
 			images: ['https://www.mergemarkdown.com/og-image.png']
 		},
 		alternates: {
+			canonical: canonicalUrl,
 			languages: languageAlternates
 		},
 		robots: {
@@ -89,20 +93,13 @@ export default function RootLayout({
 	children,
 	params: { locale }
 }: Readonly<IRootLayoutProps>) {
+	if (!locales.includes(locale as typeof locales[number])) notFound()
+	unstable_setRequestLocale(locale)
 	const messages = useMessages()
 
 	return (
-		<html lang={locale}>
-			<link rel='icon' href='/image/favicon.ico' sizes='any' />
-			<body className={monserrat.className}>
-				<Analytics />
-				<ToastProvider>
-					<NextIntlClientProvider locale={locale} messages={messages}>
-						{children}
-					</NextIntlClientProvider>
-					<Toaster />
-				</ToastProvider>
-			</body>
-		</html>
+		<NextIntlClientProvider locale={locale} messages={messages}>
+			{children}
+		</NextIntlClientProvider>
 	)
 }

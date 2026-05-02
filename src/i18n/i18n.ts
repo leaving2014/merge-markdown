@@ -16,11 +16,16 @@ export const localeNames = {
 	es: 'Español',
 	pt: 'Português'
 }
+
+export const defaultLocale = 'en'
+
 export default getRequestConfig(async ({ locale }) => {
+	const requestLocale = locale || defaultLocale
+
 	// Validate that the incoming `locale` parameter is valid
-	if (!locales.includes(locale as string)) notFound()
+	if (!locales.includes(requestLocale as string)) notFound()
 
 	return {
-		messages: (await import(`../../messages/${locale}.json`)).default,
+		messages: (await import(`../../messages/${requestLocale}.json`)).default,
 	}
 })
