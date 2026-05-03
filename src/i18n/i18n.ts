@@ -46,14 +46,14 @@ export const localeToOgLocale: Record<string, string> = {
 
 export const defaultLocale = 'en'
 
-export default getRequestConfig(async ({ locale }) => {
-	const requestLocale = locale || defaultLocale
+export default getRequestConfig(async ({ requestLocale }) => {
+	const locale = (await requestLocale) || defaultLocale
 
 	// Validate that the incoming `locale` parameter is valid
-	if (!locales.includes(requestLocale as string)) notFound()
+	if (!locales.includes(locale as (typeof locales)[number])) notFound()
 
 	return {
-		locale: requestLocale,
-		messages: (await import(`../../messages/${requestLocale}.json`)).default,
+		locale,
+		messages: (await import(`../../messages/${locale}.json`)).default,
 	}
 })

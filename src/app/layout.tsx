@@ -10,8 +10,8 @@ import { localeToHtmlLang, localeNames, localeToOgLocale } from '@/i18n/i18n'
 const monserrat = Montserrat({ subsets: ['latin'] })
 
 export default async function RootLayout({
-																					 children
-																				 }: Readonly<{
+	children
+}: Readonly<{
 	children: React.ReactNode
 }>) {
 	const locale = await getLocale()
@@ -42,40 +42,40 @@ export default async function RootLayout({
 
 	return (
 		<html lang={htmlLang}>
-		<head>
-			{alternateLinks.map((link) => (
-				<link
-					key={link.hreflang}
-					id={link.id}
-					rel="alternate"
-					href={link.href}
-					hreflang={link.hreflang}
-				/>
-			))}
-			{localeNames
-				.filter((l) => l.locale !== locale)
-				.map((l) => {
-					const ogLocale = localeToOgLocale[l.locale]
-					return (
-						<meta
-							key={ogLocale}
-							id={`i18n-og-alt-${ogLocale.replace('_', '-')}`}
-							property="og:locale:alternate"
-							content={ogLocale}
-						/>
-					)
-				})}
-		</head>
-		<link rel='icon' href='/image/favicon.ico' sizes='any' />
-		<body className={monserrat.className}>
-		<Analytics />
-		<NextIntlClientProvider locale={locale} messages={messages}>
-			<ToastProvider>
-				{children}
-				<Toaster />
-			</ToastProvider>
-		</NextIntlClientProvider>
-		</body>
+			<head>
+				{alternateLinks.map((link) => (
+					<link
+						key={link.hreflang}
+						id={link.id}
+						rel="alternate"
+						href={link.href}
+						hrefLang={link.hreflang}
+					/>
+				))}
+				{localeNames
+					.filter((l) => l.locale !== locale)
+					.map((l) => {
+						const ogLocale = localeToOgLocale[l.locale]
+						return (
+							<meta
+								key={ogLocale}
+								id={`i18n-og-alt-${ogLocale.replace('_', '-')}`}
+								property="og:locale:alternate"
+								content={ogLocale}
+							/>
+						)
+					})}
+			</head>
+			<link rel='icon' href='/image/favicon.ico' sizes='any' />
+			<body className={monserrat.className}>
+				<Analytics />
+				<NextIntlClientProvider locale={locale} messages={messages}>
+					<ToastProvider>
+						{children}
+						<Toaster />
+					</ToastProvider>
+				</NextIntlClientProvider>
+			</body>
 		</html>
 	)
 }
