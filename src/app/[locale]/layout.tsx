@@ -89,6 +89,9 @@ export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>
 	}
 }
 
+import HtmlLangUpdater from '@/components/HtmlLangUpdater'
+import { localeToHtmlLang } from '@/app/layout'
+
 export default function RootLayout({
 	children,
 	params: { locale }
@@ -96,9 +99,11 @@ export default function RootLayout({
 	if (!locales.includes(locale as typeof locales[number])) notFound()
 	unstable_setRequestLocale(locale)
 	const messages = useMessages()
+	const htmlLang = localeToHtmlLang[locale as keyof typeof localeToHtmlLang] || "en"
 
 	return (
 		<NextIntlClientProvider locale={locale} messages={messages}>
+			<HtmlLangUpdater lang={htmlLang} />
 			{children}
 		</NextIntlClientProvider>
 	)
