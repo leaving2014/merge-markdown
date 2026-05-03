@@ -10,9 +10,9 @@ export default function LocaleSwitcher() {
 	const { t } = useCustomGetTranslation('Index')
 	const locale = useLocale()
 
-	const options = locales.map(cur => ({
-		value: cur,
-		label: localeNames[cur as keyof typeof localeNames] || cur
+	const options = localeNames.map(item => ({
+		value: item.locale,
+		label: item.label
 	}))
 
 	return (

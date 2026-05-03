@@ -23,13 +23,8 @@ export function LocaleSwitcherSelect({ options, defaultValue, label }: ILocaleSw
 	const [isPending, startTransition] = useTransition()
 	const pathname = usePathname()
 	const params = useParams()
-	const [mounted, setMounted] = useState(false)
 	const [isOpen, setIsOpen] = useState(false)
 	const containerRef = useRef<HTMLDivElement>(null)
-
-	useEffect(() => {
-		setMounted(true)
-	}, [])
 
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
@@ -60,8 +55,6 @@ export function LocaleSwitcherSelect({ options, defaultValue, label }: ILocaleSw
 			)
 		})
 	}
-
-	if (!mounted) return null
 
 	const currentOption = options.find(opt => opt.value === defaultValue) || options[0]
 

@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
-import { NextIntlClientProvider, useMessages } from 'next-intl'
-import { unstable_setRequestLocale } from 'next-intl/server'
+import { NextIntlClientProvider } from 'next-intl'
+import { setRequestLocale } from 'next-intl/server'
 import { locales } from '@/config/next-intl.config'
+import HtmlLangUpdater from '@/components/HtmlLangUpdater'
+import { localeToHtmlLang, localeNames, localeToOgLocale } from "@/i18n/i18n"
+import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
 interface IRootLayoutProps {
@@ -54,7 +57,7 @@ export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>
 			title: dict.metadata.title,
 			description: dict.metadata.description,
 			url: canonicalUrl,
-			locale: locale,
+			locale: localeToOgLocale[locale] || locale,
 			type: 'website',
 			images: [
 				{
@@ -72,8 +75,7 @@ export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>
 			images: ['https://www.mergemarkdown.com/og-image.png']
 		},
 		alternates: {
-			canonical: canonicalUrl,
-			languages: languageAlternates
+			canonical: canonicalUrl
 		},
 		robots: {
 			index: true,
@@ -89,16 +91,13 @@ export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>
 	}
 }
 
-import HtmlLangUpdater from '@/components/HtmlLangUpdater'
-import { localeToHtmlLang } from '@/app/layout'
-
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 	params: { locale }
 }: Readonly<IRootLayoutProps>) {
 	if (!locales.includes(locale as typeof locales[number])) notFound()
-	unstable_setRequestLocale(locale)
-	const messages = useMessages()
+	setRequestLocale(locale)
+	const messages = await getMessages()
 	const htmlLang = localeToHtmlLang[locale as keyof typeof localeToHtmlLang] || "en"
 
 	return (

@@ -1,5 +1,5 @@
-import { Pathnames } from 'next-intl/navigation'
 import { defaultLocale as appDefaultLocale } from '../i18n/i18n'
+import { Pathnames } from 'next-intl/routing'
 
 export const port = process.env.PORT || 3000
 export const host = process.env.VERCEL_URL || `http://localhost:${port}`

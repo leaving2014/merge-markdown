@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { unstable_setRequestLocale } from 'next-intl/server'
+import { setRequestLocale } from 'next-intl/server'
 import HomePage from '@/components/HomePage'
+import { localeNames, localeToOgLocale } from "@/i18n/i18n"
 
 const siteUrl = 'https://www.mergemarkdown.com'
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 		title: 'Merge Markdown - Batch Markdown Merge Tool',
 		description: 'Merge Multiple Markdown Files into One for Free',
 		url: siteUrl,
-		locale: 'en',
+		locale: localeToOgLocale['en'] || 'en_US',
 		type: 'website',
 		images: [
 			{
@@ -36,20 +37,7 @@ export const metadata: Metadata = {
 		images: [`${siteUrl}/og-image.png`]
 	},
 	alternates: {
-		canonical: siteUrl,
-		languages: {
-			en: siteUrl,
-			'zh-CN': `${siteUrl}/zh-CN`,
-			'zh-TW': `${siteUrl}/zh-TW`,
-			ja: `${siteUrl}/ja`,
-			ko: `${siteUrl}/ko`,
-			ru: `${siteUrl}/ru`,
-			fr: `${siteUrl}/fr`,
-			de: `${siteUrl}/de`,
-			es: `${siteUrl}/es`,
-			pt: `${siteUrl}/pt`,
-			'x-default': siteUrl
-		}
+		canonical: siteUrl
 	},
 	robots: {
 		index: true,
@@ -65,7 +53,7 @@ export const metadata: Metadata = {
 }
 
 export default async function RootPage() {
-	unstable_setRequestLocale('en')
+	setRequestLocale('en')
 	const messages = (await import('../../messages/en.json')).default
 
 	return (
