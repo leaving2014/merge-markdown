@@ -87,6 +87,9 @@ export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>
 				'max-image-preview': 'large',
 				'max-snippet': -1
 			}
+		},
+		other: {
+			'monetag': '85fca33d787b72f0595130e14fc7a2a9'
 		}
 	}
 }
