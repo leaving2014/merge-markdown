@@ -279,10 +279,21 @@ export default function Home() {
 				) || []
 			).find(element => element.dataset.previewFileId === id)
 
-			target?.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start'
-			})
+			if (target && previewScrollRef.current) {
+				previewScrollRef.current.scrollTo({
+					top: target.offsetTop - 24,
+					behavior: 'smooth'
+				})
+
+				const gridDiv = document.getElementById('main-panels-grid')
+				if (gridDiv) {
+					const y = gridDiv.getBoundingClientRect().top + window.scrollY - 80
+					window.scrollTo({
+						top: y,
+						behavior: 'smooth'
+					})
+				}
+			}
 		})
 	}
 
@@ -369,7 +380,7 @@ export default function Home() {
 				</div>
 			</header>
 
-			<main className='mx-auto mb-4 max-w-7xl px-4 pb-16 pt-24 sm:px-6 lg:px-8'>
+			<main className='mx-auto mb-4 max-w-7xl px-4 pb-8 pt-24 sm:px-6 lg:px-8'>
 				<div className='mb-6 flex flex-col gap-4 text-center'>
 					<h1 className='text-4xl font-bold md:text-6xl'>{t('title')}</h1>
 					<p className='mx-auto max-w-2xl px-4 text-base text-gray-600 md:px-0 md:text-xl dark:text-gray-300'>
@@ -377,7 +388,7 @@ export default function Home() {
 					</p>
 				</div>
 
-				<div className='grid gap-4 md:grid-cols-[minmax(0,0.46fr)_minmax(0,0.54fr)]'>
+				<div id='main-panels-grid' className='grid gap-4 md:grid-cols-[minmax(0,0.46fr)_minmax(0,0.54fr)]'>
 					{/* ── Left panel: file list ── */}
 					<section className='rounded-lg bg-white p-5 shadow-sm dark:bg-gray-800'>
 						<div className='flex flex-col gap-5'>
@@ -441,7 +452,7 @@ export default function Home() {
 										strategy={verticalListSortingStrategy}
 									>
 										<ul
-											className='max-h-[30rem] space-y-2 overflow-auto pr-1'
+											className='max-h-[38rem] space-y-2 overflow-auto pr-1'
 											aria-label={t('selectedFilesLabel')}
 										>
 											{files.map(file => (
@@ -530,7 +541,7 @@ export default function Home() {
 
 							<div
 								ref={previewScrollRef}
-								className='max-h-[42rem] min-h-[28rem] scroll-pt-6 overflow-auto px-5 py-6'
+								className='relative max-h-[42rem] min-h-[28rem] scroll-pt-6 overflow-auto px-5 py-6'
 							>
 								{mergedContent ? (
 									previewMode === 'source' ? (
