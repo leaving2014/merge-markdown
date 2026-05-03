@@ -1,24 +1,39 @@
 {
-  "Index": {
-    "title": "Herramienta de fusión Markdown",
-    "selectFiles": "Seleccionar archivos Markdown",
-    "merge": "Fusionar",
-    "download": "Descargar archivo fusionado",
-    "fileReadError": "Error al leer el archivo, por favor intenta de nuevo.",
-    "noFilesSelected": "Por favor, selecciona los archivos Markdown para fusionar.",
-    "noMergedContent": "Por favor, fusiona los archivos primero.",
-    "label": "Español",
-    "description": "Fusionar varios archivos Markdown en uno para gratis"
-  },
-  "metadata": {
-    "title": "Herramienta de fusión Markdown",
-    "description": "Fusionar varios archivos Markdown en uno para gratis",
-    "keywords": "Markdown, Fusionar, Fusionación"
-  },
-  "footer": {
-    "creator": "Creado con ❤️ por GaterGet",
-    "twitter": "@gaterget",
-    "coffee": "Buy Me a Coffee",
-    "github": "GitHub"
-  }
+	"Index": {
+		"title": "Herramienta de fusión Markdown",
+		"selectFiles": "Seleccionar archivos Markdown",
+		"merge": "Fusionar",
+		"download": "Descargar archivo fusionado",
+		"fileReadError": "Error al leer el archivo, por favor intenta de nuevo.",
+		"noFilesSelected": "Por favor, selecciona los archivos Markdown para fusionar.",
+		"noMergedContent": "Por favor, fusiona los archivos primero.",
+		"filesSelected": "{count} archivos seleccionados",
+		"noFilesSelectedShort": "No hay archivos seleccionados",
+		"selectedFilesLabel": "Archivos Markdown seleccionados",
+		"lineCount": "{count} líneas",
+		"moveFile": "Mover {name}",
+		"removeFile": "Eliminar {name}",
+		"clearAll": "Limpiar todo",
+		"mergedPreview": "Vista previa fusionada",
+		"largePreviewNotice": "El contenido es grande, solo se muestran los primeros 5 MB.",
+		"copy": "Copiar",
+		"copied": "Markdown fusionado copiado",
+		"source": "Código",
+		"rendered": "Renderizado",
+		"previewEmptyLine1": "Sube archivos Markdown,",
+		"previewEmptyLine2": "y la vista previa aparecerá aquí",
+		"label": "Español",
+		"description": "Fusionar varios archivos Markdown en uno para gratis"
+	},
+	"metadata": {
+		"title": "Herramienta de fusión Markdown",
+		"description": "Fusionar varios archivos Markdown en uno para gratis",
+		"keywords": "Markdown, Fusionar, Fusionación"
+	},
+	"footer": {
+		"creator": "Creado con ❤️ por GaterGet",
+		"twitter": "@gaterget",
+		"coffee": "Buy Me a Coffee",
+		"github": "GitHub"
+	}
 }

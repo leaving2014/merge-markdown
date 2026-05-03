@@ -1,24 +1,39 @@
 {
-  "Index": {
-    "title": "Merge Markdown",
-    "selectFiles": "Select Markdown Files",
-    "merge": "Merge",
-    "download": "Download Merged File",
-    "fileReadError": "Failed to read file, please try again.",
-    "noFilesSelected": "Please select Markdown files to merge.",
-    "noMergedContent": "Please merge files first.",
-    "label": "English",
-    "description": "Merge Multiple Markdown Files into One for Free"
-  },
-  "metadata": {
-    "title": "Merge Markdown - Batch Markdown Merge Tool",
-    "description": "Merge Multiple Markdown Files into One for Free",
-    "keywords": "MarkdownMerge, BatchMerge, MarkdownOnlineMerge"
-  },
-  "footer": {
-    "creator": "Created with ❤️ by GaterGet",
-    "twitter": "@gaterget",
-    "coffee": "Buy Me a Coffee",
-    "github": "GitHub"
-  }
+	"Index": {
+		"title": "Merge Markdown",
+		"selectFiles": "Select Markdown Files",
+		"merge": "Merge",
+		"download": "Download Merged File",
+		"fileReadError": "Failed to read file, please try again.",
+		"noFilesSelected": "Please select Markdown files to merge.",
+		"noMergedContent": "Please merge files first.",
+		"filesSelected": "{count} files selected",
+		"noFilesSelectedShort": "No files selected",
+		"selectedFilesLabel": "Selected Markdown files",
+		"lineCount": "{count} lines",
+		"moveFile": "Move {name}",
+		"removeFile": "Remove {name}",
+		"clearAll": "Clear All",
+		"mergedPreview": "Merged preview",
+		"largePreviewNotice": "Content is large, showing the first 5MB preview only.",
+		"copy": "Copy",
+		"copied": "Merged Markdown copied",
+		"source": "Source",
+		"rendered": "Rendered",
+		"previewEmptyLine1": "Upload Markdown files,",
+		"previewEmptyLine2": "and the merged preview will appear here",
+		"label": "English",
+		"description": "Merge Multiple Markdown Files into One for Free"
+	},
+	"metadata": {
+		"title": "Merge Markdown - Batch Markdown Merge Tool",
+		"description": "Merge Multiple Markdown Files into One for Free",
+		"keywords": "MarkdownMerge, BatchMerge, MarkdownOnlineMerge"
+	},
+	"footer": {
+		"creator": "Created with ❤️ by GaterGet",
+		"twitter": "@gaterget",
+		"coffee": "Buy Me a Coffee",
+		"github": "GitHub"
+	}
 }

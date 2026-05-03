@@ -1,24 +1,39 @@
 {
-  "Index": {
-    "title": "Инструмент для объединения Markdown",
-    "selectFiles": "Выберите файлы Markdown",
-    "merge": "Объединить",
-    "download": "Скачать объединенный файл",
-    "fileReadError": "Не удалось прочитать файл, попробуйте еще раз.",
-    "noFilesSelected": "Пожалуйста, выберите файлы Markdown для объединения.",
-    "noMergedContent": "Сначала объедините файлы.",
-    "label": "Русский",
-    "description": "Объединение многочисленных Markdown-файлов в один для бесплатно"
-  },
-  "metadata": {
-    "title": "Инструмент для объединения Markdown - Инструменты объединения Markdown",
-    "description": "Объединение многочисленных Markdown-файлов в один для бесплатно",
-    "keywords": "MarkdownMerge, BatchMerge, MarkdownOnlineMerge"
-  },
-  "footer": {
-    "creator": "Created with ❤️ by GaterGet",
-    "twitter": "@gaterget",
-    "coffee": "Buy Me a Coffee",
-    "github": "GitHub"
-  }
+	"Index": {
+		"title": "Инструмент для объединения Markdown",
+		"selectFiles": "Выберите файлы Markdown",
+		"merge": "Объединить",
+		"download": "Скачать объединенный файл",
+		"fileReadError": "Не удалось прочитать файл, попробуйте еще раз.",
+		"noFilesSelected": "Пожалуйста, выберите файлы Markdown для объединения.",
+		"noMergedContent": "Сначала объедините файлы.",
+		"filesSelected": "Выбрано файлов: {count}",
+		"noFilesSelectedShort": "Файлы не выбраны",
+		"selectedFilesLabel": "Выбранные файлы Markdown",
+		"lineCount": "строк: {count}",
+		"moveFile": "Переместить {name}",
+		"removeFile": "Удалить {name}",
+		"clearAll": "Очистить всё",
+		"mergedPreview": "Предпросмотр объединения",
+		"largePreviewNotice": "Содержимое большое, показаны только первые 5 МБ.",
+		"copy": "Копировать",
+		"copied": "Объединенный Markdown скопирован",
+		"source": "Исходник",
+		"rendered": "Просмотр",
+		"previewEmptyLine1": "Загрузите файлы Markdown,",
+		"previewEmptyLine2": "и предпросмотр появится здесь",
+		"label": "Русский",
+		"description": "Объединение многочисленных Markdown-файлов в один для бесплатно"
+	},
+	"metadata": {
+		"title": "Инструмент для объединения Markdown - Инструменты объединения Markdown",
+		"description": "Объединение многочисленных Markdown-файлов в один для бесплатно",
+		"keywords": "MarkdownMerge, BatchMerge, MarkdownOnlineMerge"
+	},
+	"footer": {
+		"creator": "Created with ❤️ by GaterGet",
+		"twitter": "@gaterget",
+		"coffee": "Buy Me a Coffee",
+		"github": "GitHub"
+	}
 }

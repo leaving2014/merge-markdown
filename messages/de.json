@@ -1,27 +1,39 @@
 {
-  "Index": {
-    "title": "Markdown-Dateien zusammenführen",
-    "selectFiles": "Markdown-Dateien auswählen",
-    "merge": "Zusammenführen",
-    "download": "Herunterladen",
-    "noFilesSelected": "Keine Dateien ausgewählt",
-    "fileReadError": "Fehler beim Lesen der Datei",
-    "noMergedContent": "Kein zusammengeführter Inhalt verfügbar",
-    "learn": "Lernen",
-    "examples": "Beispiele",
-    "goToNextJsOrg": "Zu nextjs.org gehen →",
-    "label": "Deutsch",
-    "description": "Mehrere Markdown-Dateien in eine zusammenfassen"
-  },
-  "metadata": {
-    "title": "Markdown-Dateien zusammenführen",
-    "description": "Mehrere Markdown-Dateien in eine zusammenfassen",
-    "keywords": "Markdown, Zusammenfassung, Zusammenführung"
-  },
-  "footer": {
-    "creator": "Erstellt mit ❤️ von GaterGet",
-    "twitter": "@gaterget",
-    "coffee": "Buy Me a Coffee",
-    "github": "GitHub"
-  }
+	"Index": {
+		"title": "Markdown-Dateien zusammenführen",
+		"selectFiles": "Markdown-Dateien auswählen",
+		"merge": "Zusammenführen",
+		"download": "Herunterladen",
+		"noFilesSelected": "Keine Dateien ausgewählt",
+		"fileReadError": "Fehler beim Lesen der Datei",
+		"noMergedContent": "Kein zusammengeführter Inhalt verfügbar",
+		"filesSelected": "{count} Dateien ausgewählt",
+		"noFilesSelectedShort": "Keine Dateien ausgewählt",
+		"selectedFilesLabel": "Ausgewählte Markdown-Dateien",
+		"lineCount": "{count} Zeilen",
+		"moveFile": "{name} verschieben",
+		"removeFile": "{name} entfernen",
+		"clearAll": "Alle löschen",
+		"mergedPreview": "Zusammengeführte Vorschau",
+		"largePreviewNotice": "Der Inhalt ist groß, es werden nur die ersten 5 MB angezeigt.",
+		"copy": "Kopieren",
+		"copied": "Zusammengeführtes Markdown kopiert",
+		"source": "Quelle",
+		"rendered": "Vorschau",
+		"previewEmptyLine1": "Lade Markdown-Dateien hoch,",
+		"previewEmptyLine2": "dann erscheint die Vorschau hier",
+		"label": "Deutsch",
+		"description": "Mehrere Markdown-Dateien in eine zusammenfassen"
+	},
+	"metadata": {
+		"title": "Markdown-Dateien zusammenführen",
+		"description": "Mehrere Markdown-Dateien in eine zusammenfassen",
+		"keywords": "Markdown, Zusammenfassung, Zusammenführung"
+	},
+	"footer": {
+		"creator": "Erstellt mit ❤️ von GaterGet",
+		"twitter": "@gaterget",
+		"coffee": "Buy Me a Coffee",
+		"github": "GitHub"
+	}
 }

@@ -1,24 +1,39 @@
 {
-  "Index": {
-    "title": "Markdown結合ツール",
-    "selectFiles": "Markdownファイルを選択",
-    "merge": "結合",
-    "download": "結合されたファイルをダウンロード",
-    "fileReadError": "ファイルの読み込みに失敗しました。もう一度お試しください。",
-    "noFilesSelected": "結合するMarkdownファイルを選択してください。",
-    "noMergedContent": "最初にファイルを結合してください。",
-    "label": "日本語",
-    "description": "Markdownファイルを一つのファイルに結合する無料ツール"
-  },
-  "metadata": {
-    "title": "Markdown結合ツール - バッチマークダウン結合ツール",
-    "description": "Markdownファイルを一つのファイルに結合する無料ツール",
-    "keywords": "MarkdownMerge, BatchMerge, MarkdownOnlineMerge"
-  },
-  "footer": {
-    "creator": "Created with ❤️ by GaterGet",
-    "twitter": "@gaterget",
-    "coffee": "Buy Me a Coffee",
-    "github": "GitHub"
-  }
+	"Index": {
+		"title": "Markdown結合ツール",
+		"selectFiles": "Markdownファイルを選択",
+		"merge": "結合",
+		"download": "結合されたファイルをダウンロード",
+		"fileReadError": "ファイルの読み込みに失敗しました。もう一度お試しください。",
+		"noFilesSelected": "結合するMarkdownファイルを選択してください。",
+		"noMergedContent": "最初にファイルを結合してください。",
+		"filesSelected": "{count}個のファイルを選択済み",
+		"noFilesSelectedShort": "ファイルが選択されていません",
+		"selectedFilesLabel": "選択済みのMarkdownファイル",
+		"lineCount": "{count}行",
+		"moveFile": "{name}を移動",
+		"removeFile": "{name}を削除",
+		"clearAll": "すべてクリア",
+		"mergedPreview": "結合プレビュー",
+		"largePreviewNotice": "内容が大きいため、先頭5MBのみプレビュー表示しています。",
+		"copy": "コピー",
+		"copied": "結合されたMarkdownをコピーしました",
+		"source": "ソース",
+		"rendered": "表示",
+		"previewEmptyLine1": "Markdownファイルをアップロードすると、",
+		"previewEmptyLine2": "結合プレビューがここに表示されます",
+		"label": "日本語",
+		"description": "Markdownファイルを一つのファイルに結合する無料ツール"
+	},
+	"metadata": {
+		"title": "Markdown結合ツール - バッチマークダウン結合ツール",
+		"description": "Markdownファイルを一つのファイルに結合する無料ツール",
+		"keywords": "MarkdownMerge, BatchMerge, MarkdownOnlineMerge"
+	},
+	"footer": {
+		"creator": "Created with ❤️ by GaterGet",
+		"twitter": "@gaterget",
+		"coffee": "Buy Me a Coffee",
+		"github": "GitHub"
+	}
 }

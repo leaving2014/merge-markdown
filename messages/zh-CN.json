@@ -1,24 +1,39 @@
 {
-  "Index": {
-    "title": "Markdown 合并工具",
-    "selectFiles": "选择 Markdown 文件",
-    "merge": "合并",
-    "download": "下载合并后的文件",
-    "fileReadError": "文件读取失败，请重试。",
-    "noFilesSelected": "请选择要合并的 Markdown 文件。",
-    "noMergedContent": "请先合并文件。",
-    "label": "简体中文",
-    "description": "在线合并多个markdown文件成一个文件"
-  },
-  "metadata": {
-    "title": "Merge Markdown - 批量 markdown 文件合并工具",
-    "description": "在线合并多个 markdown 文件成一个文件",
-    "keywords": "Markdown合并,批量合并,markdown在线合并"
-  },
-  "footer": {
-    "creator": "Created with ❤️ by GaterGet",
-    "twitter": "@gaterget",
-    "coffee": "Buy Me a Coffee",
-    "github": "GitHub"
-  }
+	"Index": {
+		"title": "Markdown 合并工具",
+		"selectFiles": "选择 Markdown 文件",
+		"merge": "合并",
+		"download": "下载合并后的文件",
+		"fileReadError": "文件读取失败，请重试。",
+		"noFilesSelected": "请选择要合并的 Markdown 文件。",
+		"noMergedContent": "请先合并文件。",
+		"filesSelected": "已选择 {count} 个文件",
+		"noFilesSelectedShort": "尚未选择文件",
+		"selectedFilesLabel": "已选择的 Markdown 文件",
+		"lineCount": "{count} 行",
+		"moveFile": "移动 {name}",
+		"removeFile": "删除 {name}",
+		"clearAll": "清空列表",
+		"mergedPreview": "合并预览",
+		"largePreviewNotice": "内容较大，仅显示前 5MB 预览。",
+		"copy": "复制全文",
+		"copied": "已复制合并后的 Markdown",
+		"source": "源码",
+		"rendered": "渲染",
+		"previewEmptyLine1": "上传 Markdown 文件后，",
+		"previewEmptyLine2": "合并预览将在此处显示",
+		"label": "简体中文",
+		"description": "在线合并多个markdown文件成一个文件"
+	},
+	"metadata": {
+		"title": "Merge Markdown - 批量 markdown 文件合并工具",
+		"description": "在线合并多个 markdown 文件成一个文件",
+		"keywords": "Markdown合并,批量合并,markdown在线合并"
+	},
+	"footer": {
+		"creator": "Created with ❤️ by GaterGet",
+		"twitter": "@gaterget",
+		"coffee": "Buy Me a Coffee",
+		"github": "GitHub"
+	}
 }

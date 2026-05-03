@@ -1,24 +1,39 @@
 {
-  "Index": {
-    "title": "मार्कडाउन विलय उपकरण",
-    "selectFiles": "मार्कडाउन फ़ाइलें चुनें",
-    "merge": "विलय करें",
-    "download": "विलय की गई फ़ाइल डाउनलोड करें",
-    "fileReadError": "फ़ाइल पढ़ने में विफल, कृपया फिर से प्रयास करें।",
-    "noFilesSelected": "कृपया विलय करने के लिए मार्कडाउन फ़ाइलें चुनें।",
-    "noMergedContent": "पहले फ़ाइलों को विलय करें।",
-    "label": "हिंदी",
-    "description": "मार्कडाउन फ़ाइलों को एक फ़ाइल में एक साथ विलय करना असली रूप से फ्री"
-  },
-  "metadata": {
-    "title": "मार्कडाउन विलय उपकरण - मार्कडाउन मर्जणा उपकरण",
-    "description": "मार्कडाउन फ़ाइलों को एक फ़ाइल में एक साथ विलय करना असली रूप से फ्री",
-    "keywords": "MarkdownMerge, BatchMerge, MarkdownOnlineMerge"
-  },
-  "footer": {
-    "creator": "Created with ❤️ by Gaterget",
-    "twitter": "@gaterget",
-    "coffee": "Buy Me a Coffee",
-    "github": "GitHub"
-  }
+	"Index": {
+		"title": "मार्कडाउन विलय उपकरण",
+		"selectFiles": "मार्कडाउन फ़ाइलें चुनें",
+		"merge": "विलय करें",
+		"download": "विलय की गई फ़ाइल डाउनलोड करें",
+		"fileReadError": "फ़ाइल पढ़ने में विफल, कृपया फिर से प्रयास करें।",
+		"noFilesSelected": "कृपया विलय करने के लिए मार्कडाउन फ़ाइलें चुनें।",
+		"noMergedContent": "पहले फ़ाइलों को विलय करें।",
+		"filesSelected": "{count} फ़ाइलें चुनी गईं",
+		"noFilesSelectedShort": "कोई फ़ाइल नहीं चुनी गई",
+		"selectedFilesLabel": "चुनी गई Markdown फ़ाइलें",
+		"lineCount": "{count} पंक्तियाँ",
+		"moveFile": "{name} को ले जाएँ",
+		"removeFile": "{name} हटाएँ",
+		"clearAll": "सभी साफ़ करें",
+		"mergedPreview": "विलय पूर्वावलोकन",
+		"largePreviewNotice": "सामग्री बड़ी है, केवल पहले 5MB का पूर्वावलोकन दिखाया जा रहा है।",
+		"copy": "कॉपी करें",
+		"copied": "विलय किया गया Markdown कॉपी हो गया",
+		"source": "स्रोत",
+		"rendered": "रेंडर",
+		"previewEmptyLine1": "Markdown फ़ाइलें अपलोड करें,",
+		"previewEmptyLine2": "विलय पूर्वावलोकन यहाँ दिखाई देगा",
+		"label": "हिंदी",
+		"description": "मार्कडाउन फ़ाइलों को एक फ़ाइल में एक साथ विलय करना असली रूप से फ्री"
+	},
+	"metadata": {
+		"title": "मार्कडाउन विलय उपकरण - मार्कडाउन मर्जणा उपकरण",
+		"description": "मार्कडाउन फ़ाइलों को एक फ़ाइल में एक साथ विलय करना असली रूप से फ्री",
+		"keywords": "MarkdownMerge, BatchMerge, MarkdownOnlineMerge"
+	},
+	"footer": {
+		"creator": "Created with ❤️ by Gaterget",
+		"twitter": "@gaterget",
+		"coffee": "Buy Me a Coffee",
+		"github": "GitHub"
+	}
 }

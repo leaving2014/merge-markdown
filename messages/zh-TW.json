@@ -1,24 +1,39 @@
 {
-  "Index": {
-    "title": "Markdown 合併工具",
-    "selectFiles": "選擇 Markdown 檔案",
-    "merge": "合併",
-    "download": "下載合併後的檔案",
-    "fileReadError": "檔案讀取失敗，請重試。",
-    "noFilesSelected": "請選擇要合併的 Markdown 檔案。",
-    "noMergedContent": "請先合併檔案。",
-    "label": "繁體中文",
-    "description": "在線合併多個 markdown 文件成一個文件"
-  },
-  "metadata": {
-    "title": "Markdown 合併工具 - 批量 markdown 文件合併工具",
-    "description": "在線合併多個 markdown 文件成一個文件",
-    "keywords": "Markdown合并,批量合并,markdown在线合并"
-  },
-  "footer": {
-    "creator": "Created with ❤️ by GaterGet",
-    "twitter": "@gaterget",
-    "coffee": "Buy Me a Coffee",
-    "github": "GitHub"
-  }
+	"Index": {
+		"title": "Markdown 合併工具",
+		"selectFiles": "選擇 Markdown 檔案",
+		"merge": "合併",
+		"download": "下載合併後的檔案",
+		"fileReadError": "檔案讀取失敗，請重試。",
+		"noFilesSelected": "請選擇要合併的 Markdown 檔案。",
+		"noMergedContent": "請先合併檔案。",
+		"filesSelected": "已選擇 {count} 個檔案",
+		"noFilesSelectedShort": "尚未選擇檔案",
+		"selectedFilesLabel": "已選擇的 Markdown 檔案",
+		"lineCount": "{count} 行",
+		"moveFile": "移動 {name}",
+		"removeFile": "刪除 {name}",
+		"clearAll": "清空清單",
+		"mergedPreview": "合併預覽",
+		"largePreviewNotice": "內容較大，僅顯示前 5MB 預覽。",
+		"copy": "複製全文",
+		"copied": "已複製合併後的 Markdown",
+		"source": "原始碼",
+		"rendered": "渲染",
+		"previewEmptyLine1": "上傳 Markdown 檔案後，",
+		"previewEmptyLine2": "合併預覽將在此處顯示",
+		"label": "繁體中文",
+		"description": "在線合併多個 markdown 文件成一個文件"
+	},
+	"metadata": {
+		"title": "Markdown 合併工具 - 批量 markdown 文件合併工具",
+		"description": "在線合併多個 markdown 文件成一個文件",
+		"keywords": "Markdown合并,批量合并,markdown在线合并"
+	},
+	"footer": {
+		"creator": "Created with ❤️ by GaterGet",
+		"twitter": "@gaterget",
+		"coffee": "Buy Me a Coffee",
+		"github": "GitHub"
+	}
 }
