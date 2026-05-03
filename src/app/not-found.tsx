@@ -1,8 +1,7 @@
-'use client'
-
 import { Metadata } from 'next'
-
 import { CustomNotFound } from '@/screens/error/notfound'
+
+export const runtime = 'edge'
 
 export const metadata: Metadata = {
 	title: '404 - Not Found',
