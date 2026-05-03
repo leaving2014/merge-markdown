@@ -23,7 +23,20 @@
 		"previewEmptyLine1": "Sube archivos Markdown,",
 		"previewEmptyLine2": "y la vista previa aparecerá aquí",
 		"label": "Español",
-		"description": "Fusionar varios archivos Markdown en uno para gratis"
+		"description": "Fusionar varios archivos Markdown en uno para gratis",
+		"faqTitle": "Preguntas frecuentes",
+		"faq1Q": "¿Qué formatos de archivo se admiten?",
+		"faq1A": "Se admiten archivos .md, .markdown y .txt.",
+		"faq2Q": "¿Cuántos archivos puedo fusionar a la vez?",
+		"faq2A": "No hay límite de archivos. La vista previa en tiempo real está limitada a 5 MB, pero el archivo descargado siempre contiene el contenido completo.",
+		"faq3Q": "¿En qué orden se fusionan los archivos?",
+		"faq3A": "En el orden en que aparecen en la lista. Puedes arrastrar y soltar las tarjetas para reordenarlos.",
+		"faq4Q": "¿Mis archivos se suben a un servidor?",
+		"faq4A": "No. Todo el procesamiento ocurre localmente en tu navegador. Tus archivos nunca salen de tu dispositivo.",
+		"faq5Q": "¿Qué separa cada archivo en el resultado fusionado?",
+		"faq5A": "Cada archivo está separado por una línea horizontal de Markdown (---) y una línea en blanco.",
+		"faq6Q": "¿Puedo previsualizar el resultado antes de descargar?",
+		"faq6A": "Sí. El panel derecho muestra una vista previa en tiempo real que se actualiza automáticamente. Puedes cambiar entre vista renderizada y código fuente Markdown."
 	},
 	"metadata": {
 		"title": "Herramienta de fusión Markdown",

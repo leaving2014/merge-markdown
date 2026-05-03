@@ -31,7 +31,7 @@ import {
 	X
 } from 'lucide-react'
 import { marked } from 'marked'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -163,6 +163,7 @@ function SortableFileCard({
 
 export default function Home() {
 	const t = useTranslations('Index')
+	const locale = useLocale()
 	const [files, setFiles] = useState<FileItem[]>([])
 	const [previewHtmlById, setPreviewHtmlById] = useState<Record<string, string>>({})
 	const [previewMode, setPreviewMode] = useState<'rendered' | 'source'>('rendered')
@@ -588,8 +589,83 @@ export default function Home() {
 						</div>
 					</section>
 				</div>
+
+				{/* ── FAQ Section ── */}
+				<section className='mt-16 rounded-lg bg-white p-6 shadow-sm dark:bg-gray-800 sm:p-8'>
+					<h2 className='mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100'>
+						{t('faqTitle')}
+					</h2>
+					<div className='divide-y divide-gray-200 dark:divide-gray-700'>
+						{[
+							{ q: t('faq1Q'), a: t('faq1A') },
+							{ q: t('faq2Q'), a: t('faq2A') },
+							{ q: t('faq3Q'), a: t('faq3A') },
+							{ q: t('faq4Q'), a: t('faq4A') },
+							{ q: t('faq5Q'), a: t('faq5A') },
+							{ q: t('faq6Q'), a: t('faq6A') }
+						].map((faq, index) => (
+							<details
+								key={index}
+								className='group py-4 [&_summary::-webkit-details-marker]:hidden'
+							>
+								<summary className='flex cursor-pointer items-center justify-between gap-4 font-medium text-gray-900 focus:outline-none dark:text-gray-100'>
+									<span>{faq.q}</span>
+									<span className='transition-transform duration-300 group-open:rotate-180'>
+										<ChevronDown className='h-5 w-5 text-gray-500' />
+									</span>
+								</summary>
+								<div className='mt-3 text-gray-600 leading-relaxed dark:text-gray-400'>
+									{faq.a}
+								</div>
+							</details>
+						))}
+					</div>
+				</section>
 			</main>
 			<Footer />
+
+			<script
+				type='application/ld+json'
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'FAQPage',
+						inLanguage: locale,
+						mainEntity: [
+							{
+								'@type': 'Question',
+								name: t('faq1Q'),
+								acceptedAnswer: { '@type': 'Answer', text: t('faq1A') }
+							},
+							{
+								'@type': 'Question',
+								name: t('faq2Q'),
+								acceptedAnswer: { '@type': 'Answer', text: t('faq2A') }
+							},
+							{
+								'@type': 'Question',
+								name: t('faq3Q'),
+								acceptedAnswer: { '@type': 'Answer', text: t('faq3A') }
+							},
+							{
+								'@type': 'Question',
+								name: t('faq4Q'),
+								acceptedAnswer: { '@type': 'Answer', text: t('faq4A') }
+							},
+							{
+								'@type': 'Question',
+								name: t('faq5Q'),
+								acceptedAnswer: { '@type': 'Answer', text: t('faq5A') }
+							},
+							{
+								'@type': 'Question',
+								name: t('faq6Q'),
+								acceptedAnswer: { '@type': 'Answer', text: t('faq6A') }
+							}
+						]
+					})
+				}}
+			/>
 		</div>
 	)
 }

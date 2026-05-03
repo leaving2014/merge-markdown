@@ -23,7 +23,20 @@
 		"previewEmptyLine1": "Importez des fichiers Markdown,",
 		"previewEmptyLine2": "et l’aperçu fusionné s’affichera ici",
 		"label": "Français",
-		"description": "Fusionne plusieurs fichiers Markdown en un seul pour gratuitement"
+		"description": "Fusionne plusieurs fichiers Markdown en un seul pour gratuitement",
+		"faqTitle": "Questions fréquentes",
+		"faq1Q": "Quels formats de fichiers sont pris en charge?",
+		"faq1A": "Les fichiers .md, .markdown et .txt sont pris en charge.",
+		"faq2Q": "Combien de fichiers puis-je fusionner à la fois?",
+		"faq2A": "Il n'y a pas de limite. L'aperçu en temps réel est limité à 5 Mo, mais le fichier téléchargé contient toujours le contenu complet.",
+		"faq3Q": "Dans quel ordre les fichiers sont-ils fusionnés?",
+		"faq3A": "Dans l'ordre où ils apparaissent dans la liste. Vous pouvez glisser-déposer les cartes pour les réordonner.",
+		"faq4Q": "Mes fichiers sont-ils envoyés à un serveur?",
+		"faq4A": "Non. Tout le traitement se fait localement dans votre navigateur. Vos fichiers ne quittent jamais votre appareil.",
+		"faq5Q": "Qu'est-ce qui sépare les fichiers dans le résultat fusionné?",
+		"faq5A": "Chaque fichier est séparé par une ligne horizontale Markdown (---) et une ligne vide.",
+		"faq6Q": "Puis-je prévisualiser le résultat avant de télécharger?",
+		"faq6A": "Oui. Le panneau droit affiche un aperçu en temps réel. Vous pouvez basculer entre la vue rendue et le code source Markdown."
 	},
 	"metadata": {
 		"title": "Merge Markdown - Outil de fusion Markdown",

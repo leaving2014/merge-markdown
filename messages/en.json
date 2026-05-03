@@ -23,7 +23,20 @@
 		"previewEmptyLine1": "Upload Markdown files,",
 		"previewEmptyLine2": "and the merged preview will appear here",
 		"label": "English",
-		"description": "Merge Multiple Markdown Files into One for Free"
+		"description": "Merge Multiple Markdown Files into One for Free",
+		"faqTitle": "Frequently Asked Questions",
+		"faq1Q": "What file formats are supported?",
+		"faq1A": "Merge Markdown supports .md, .markdown, and plain-text .txt files. Any file you can write Markdown in will work.",
+		"faq2Q": "How many files can I merge at once?",
+		"faq2A": "There is no hard limit on the number of files. You can add as many as you need. Note that the live preview is capped at 5 MB for performance — the downloaded file always contains the full merged content.",
+		"faq3Q": "What order will the files be merged in?",
+		"faq3A": "Files are merged in the order they appear in the list. You can drag and drop the cards to reorder them before downloading.",
+		"faq4Q": "Are my files uploaded to a server?",
+		"faq4A": "No. All processing happens entirely in your browser. Your files never leave your device, so your content stays private.",
+		"faq5Q": "What separates each file in the merged output?",
+		"faq5A": "Each file is separated by a Markdown horizontal rule (---) followed by a blank line, keeping the merged document clean and well-structured.",
+		"faq6Q": "Can I preview the result before downloading?",
+		"faq6A": "Yes. The right panel shows a live preview that updates as you add, remove, or reorder files. You can switch between a rendered view and the raw Markdown source."
 	},
 	"metadata": {
 		"title": "Merge Markdown - Batch Markdown Merge Tool",

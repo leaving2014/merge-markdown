@@ -23,7 +23,20 @@
 		"previewEmptyLine1": "Envie arquivos Markdown,",
 		"previewEmptyLine2": "e a prévia mesclada aparecerá aqui",
 		"label": "Português",
-		"description": "Fusionar varios arquivos Markdown em um para gratis"
+		"description": "Fusionar varios arquivos Markdown em um para gratis",
+		"faqTitle": "Perguntas frequentes",
+		"faq1Q": "Quais formatos de arquivo são suportados?",
+		"faq1A": "Arquivos .md, .markdown e .txt são suportados.",
+		"faq2Q": "Quantos arquivos posso mesclar de uma vez?",
+		"faq2A": "Não há limite. A prévia em tempo real é limitada a 5 MB, mas o arquivo baixado sempre contém o conteúdo completo.",
+		"faq3Q": "Em que ordem os arquivos são mesclados?",
+		"faq3A": "Na ordem em que aparecem na lista. Você pode arrastar e soltar os cartões para reordená-los.",
+		"faq4Q": "Meus arquivos são enviados para um servidor?",
+		"faq4A": "Não. Todo o processamento ocorre localmente no seu navegador. Seus arquivos nunca saem do seu dispositivo.",
+		"faq5Q": "O que separa cada arquivo na saída mesclada?",
+		"faq5A": "Cada arquivo é separado por uma linha horizontal Markdown (---) e uma linha em branco.",
+		"faq6Q": "Posso visualizar o resultado antes de baixar?",
+		"faq6A": "Sim. O painel direito mostra uma prévia em tempo real. Você pode alternar entre a visualização renderizada e o código-fonte Markdown."
 	},
 	"metadata": {
 		"title": "Merge Markdown - Outil de fusion Markdown",

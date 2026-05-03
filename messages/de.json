@@ -23,7 +23,20 @@
 		"previewEmptyLine1": "Lade Markdown-Dateien hoch,",
 		"previewEmptyLine2": "dann erscheint die Vorschau hier",
 		"label": "Deutsch",
-		"description": "Mehrere Markdown-Dateien in eine zusammenfassen"
+		"description": "Mehrere Markdown-Dateien in eine zusammenfassen",
+		"faqTitle": "Häufig gestellte Fragen",
+		"faq1Q": "Welche Dateiformate werden unterstützt?",
+		"faq1A": ".md, .markdown und .txt Dateien werden unterstützt.",
+		"faq2Q": "Wie viele Dateien kann ich auf einmal zusammenführen?",
+		"faq2A": "Es gibt keine Mengenbeschränkung. Die Echtzeit-Vorschau ist auf 5 MB begrenzt, aber die heruntergeladene Datei enthält immer den vollständigen Inhalt.",
+		"faq3Q": "In welcher Reihenfolge werden die Dateien zusammengeführt?",
+		"faq3A": "In der Reihenfolge, in der sie in der Liste erscheinen. Sie können die Karten per Drag-and-Drop umsortieren.",
+		"faq4Q": "Werden meine Dateien auf einen Server hochgeladen?",
+		"faq4A": "Nein. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser. Ihre Dateien verlassen Ihr Gerät nicht.",
+		"faq5Q": "Womit werden die Dateien in der zusammengeführten Ausgabe getrennt?",
+		"faq5A": "Jede Datei wird durch eine Markdown-Trennlinie (---) und eine Leerzeile getrennt.",
+		"faq6Q": "Kann ich das Ergebnis vor dem Download ansehen?",
+		"faq6A": "Ja. Das rechte Panel zeigt eine Echtzeit-Vorschau, die sich bei Änderungen automatisch aktualisiert. Sie können zwischen gerenderter Ansicht und Markdown-Quellcode wechseln."
 	},
 	"metadata": {
 		"title": "Markdown-Dateien zusammenführen",
