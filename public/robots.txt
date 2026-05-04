@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap locations
+Sitemap: https://mergemarkdown.com/sitemap.xml
