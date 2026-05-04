@@ -1,16 +1,11 @@
-import { defaultLocale as appDefaultLocale } from '../i18n/i18n'
 import { Pathnames } from 'next-intl/routing'
 
-export const port = process.env.PORT || 3000
-export const host = process.env.VERCEL_URL || `http://localhost:${port}`
-
-export const defaultLocale = appDefaultLocale
+export const defaultLocale = 'en' as const
 export const locales = ['en', 'zh-CN', 'zh-TW', 'ja', 'ko', 'ru', 'fr', 'de', 'es', 'pt'] as const
+export type Locale = typeof locales[number]
 
 export const pathnames = {
 	'/': '/',
 } satisfies Pathnames<typeof locales>
 
 export const localePrefix = 'as-needed'
-
-export type AppPathnames = keyof typeof pathnames

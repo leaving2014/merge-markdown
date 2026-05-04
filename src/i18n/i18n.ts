@@ -1,9 +1,8 @@
 import { getRequestConfig } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { locales, defaultLocale, type Locale } from '@/config/next-intl.config'
 
-
-// Can be imported from a shared config
-export const locales = ['en', 'zh-CN', 'zh-TW', 'ja', 'ko', 'ru', 'fr', 'de', 'es', 'pt']
+export { locales, defaultLocale, type Locale }
 
 export const localeNames = [
   { locale: 'en',    path: '/',    label: 'English',    short: 'EN' },
@@ -43,8 +42,6 @@ export const localeToOgLocale: Record<string, string> = {
 	'es': 'es_ES',
 	'pt': 'pt_PT',
 }
-
-export const defaultLocale = 'en'
 
 export default getRequestConfig(async ({ requestLocale }) => {
 	const locale = (await requestLocale) || defaultLocale
