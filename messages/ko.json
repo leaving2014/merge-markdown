@@ -39,8 +39,8 @@
 		"faq6A": "예. 오른쪽 패널에서 실시간 미리보기를 확인할 수 있으며, 렌더링 보기와 Markdown 소스 보기를 전환할 수 있습니다."
 	},
 	"metadata": {
-		"title": "Markdown 병합 도구 - 배치 markdown 파일 병합 도구",
-		"description": "Markdown 파일들을 од똅어병합하는無料도구",
+		"title": "Markdown 파일 온라인 병합 — 무료 MD 병합 도구",
+		"description": "여러 Markdown(.md) 파일을 즉시 병합할 수 있는 무료 온라인 도구입니다. 여러 .md 파일을 업로드하여 하나로 결합하세요 — 회원가입이나 설치가 필요 없습니다. 빠르고 간단합니다.",
 		"keywords": "MarkdownMerge, BatchMerge, MarkdownOnlineMerge"
 	},
 	"footer": {

@@ -39,8 +39,8 @@
 		"faq6A": "できます。右パネルにリアルタイムプレビューが表示され、レンダリング表示とMarkdownソース表示を切り替えられます。"
 	},
 	"metadata": {
-		"title": "Markdown結合ツール - バッチマークダウン結合ツール",
-		"description": "Markdownファイルを一つのファイルに結合する無料ツール",
+		"title": "Markdownファイルをオンラインで結合 — 無料のMD結合ツール",
+		"description": "複数のMarkdown（.md）ファイルをすぐに結合できる無料のオンラインツールです。複数の .md ファイルをアップロードして1つにまとめます — 登録やインストールは不要。高速で簡単です。",
 		"keywords": "MarkdownMerge, BatchMerge, MarkdownOnlineMerge"
 	},
 	"footer": {
