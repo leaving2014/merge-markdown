@@ -5,4 +5,19 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap locations
-Sitemap: https://mergemarkdown.com/sitemap.xml
+Sitemap: https://www.mergemarkdown.com/sitemap.xml
+
+# AI-readable index
+# llms.txt: https://www.mergemarkdown.com/llms.txt
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /

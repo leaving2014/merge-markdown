@@ -36,7 +36,19 @@
 		"faq5Q": "What separates each file in the merged output?",
 		"faq5A": "Each file is separated by a Markdown horizontal rule (---) followed by a blank line, keeping the merged document clean and well-structured.",
 		"faq6Q": "Can I preview the result before downloading?",
-		"faq6A": "Yes. The right panel shows a live preview that updates as you add, remove, or reorder files. You can switch between a rendered view and the raw Markdown source."
+		"faq6A": "Yes. The right panel shows a live preview that updates as you add, remove, or reorder files. You can switch between a rendered view and the raw Markdown source.",
+		"faq7Q": "Should I use cat, pandoc, or a Python script instead of an online tool?",
+		"faq7A": "Command-line tools work well for simple cases: `cat *.md > merged.md` concatenates files in seconds, and pandoc is the better pick when you also need format conversion such as Markdown to PDF. But they require a terminal, offer no drag-and-drop reordering, and give no live preview. If you want zero setup, visual ordering, and instant preview, this online tool is the faster choice.",
+		"faq8Q": "How is MergeMarkdown different from other online Markdown mergers?",
+		"faq8A": "MergeMarkdown is free with no signup, no watermarks, and no limit on the number of files. Unlike many online converters, all processing happens locally in your browser, so your documents are never uploaded to a server. You also get drag-and-drop reordering plus a live rendered preview before downloading.",
+		"faq9Q": "Can I use this with Obsidian, MkDocs, GitBook, or Hugo?",
+		"faq9A": "Yes. Collect your notes as .md files — for example, individual Obsidian notes or the docs pages of an MkDocs, GitBook, or Hugo site — then merge them here into a single document for sharing, printing, or archiving. The `---` separators keep chapters visually distinct, and the merged file stays standard Markdown that renders correctly in all of these tools.",
+		"faq10Q": "Is my content private? Can I use it offline?",
+		"faq10A": "Yes. Every step — reading, merging, and previewing — runs entirely in your browser with no server uploads, so you can even disconnect from the network after the page loads and keep working. Nothing is stored, logged, or tracked. For sensitive documents, this local-only design means your content never leaves your device.",
+		"faq11Q": "What about large files, character encoding, and line endings?",
+		"faq11A": "Files are read as UTF-8, so international characters and emoji are preserved, and each file's original line endings are kept as-is. There is no hard limit on total size: only the live preview is capped at 5 MB for performance, while the download always contains the full merged content. For very large merges with hundreds of files, merging in smaller batches gives the smoothest experience.",
+		"faq12Q": "Is it really free? Do I need an account?",
+		"faq12A": "Yes, it is completely free with no account, no signup, and no limit on how many files you can merge. There are no watermarks and no locked features — everything on this page works immediately. The project is sustained by optional donations through the Buy Me a Coffee link in the footer."
 	},
 	"metadata": {
 		"title": "Merge Markdown Files Online – Free MD Merger Tool",

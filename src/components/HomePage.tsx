@@ -31,7 +31,7 @@ import {
 	X
 } from 'lucide-react'
 import { marked } from 'marked'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -40,6 +40,7 @@ import Footer from '@/components/Footer'
 import LocaleSwitcher from '@/components/ui/language-switcher'
 
 import { useToast } from '@/hooks/use-toast'
+import { HOME_FAQ_IDS } from '@/lib/aeo-jsonld'
 
 // Configure marked with GFM support
 marked.setOptions({
@@ -62,6 +63,11 @@ type PreviewItem = {
 }
 
 const PREVIEW_LIMIT = 5 * 1024 * 1024
+
+// FAQ entries 1..12. Locales missing a key fall back to hiding that entry
+// (next-intl `t.has` returns false instead of throwing).
+// IDs are shared with the server-side JSON-LD/SEO assembly in [locale]/page.tsx.
+const FAQ_IDS = HOME_FAQ_IDS
 
 const formatBytes = (bytes: number) => {
 	if (bytes < 1024) return `${bytes} B`
@@ -163,7 +169,14 @@ function SortableFileCard({
 
 export default function Home() {
 	const t = useTranslations('Index')
-	const locale = useLocale()
+	const faqs = useMemo(() => {
+		return FAQ_IDS.flatMap((n): { q: string; a: string }[] => {
+			const qKey = `faq${n}Q`
+			const aKey = `faq${n}A`
+			if (!t.has(qKey) || !t.has(aKey)) return []
+			return [{ q: t(qKey), a: t(aKey) }]
+		})
+	}, [t])
 	const [files, setFiles] = useState<FileItem[]>([])
 	const [previewHtmlById, setPreviewHtmlById] = useState<Record<string, string>>({})
 	const [previewMode, setPreviewMode] = useState<'rendered' | 'source'>('rendered')
@@ -607,14 +620,7 @@ export default function Home() {
 						{t('faqTitle')}
 					</h2>
 					<div className='divide-y divide-gray-200 dark:divide-gray-700'>
-						{[
-							{ q: t('faq1Q'), a: t('faq1A') },
-							{ q: t('faq2Q'), a: t('faq2A') },
-							{ q: t('faq3Q'), a: t('faq3A') },
-							{ q: t('faq4Q'), a: t('faq4A') },
-							{ q: t('faq5Q'), a: t('faq5A') },
-							{ q: t('faq6Q'), a: t('faq6A') }
-						].map((faq, index) => (
+						{faqs.map((faq, index) => (
 							<details
 								key={index}
 								className='group py-4 [&_summary::-webkit-details-marker]:hidden'
@@ -634,49 +640,6 @@ export default function Home() {
 				</section>
 			</main>
 			<Footer />
-
-			<script
-				type='application/ld+json'
-				dangerouslySetInnerHTML={{
-					__html: JSON.stringify({
-						'@context': 'https://schema.org',
-						'@type': 'FAQPage',
-						inLanguage: locale,
-						mainEntity: [
-							{
-								'@type': 'Question',
-								name: t('faq1Q'),
-								acceptedAnswer: { '@type': 'Answer', text: t('faq1A') }
-							},
-							{
-								'@type': 'Question',
-								name: t('faq2Q'),
-								acceptedAnswer: { '@type': 'Answer', text: t('faq2A') }
-							},
-							{
-								'@type': 'Question',
-								name: t('faq3Q'),
-								acceptedAnswer: { '@type': 'Answer', text: t('faq3A') }
-							},
-							{
-								'@type': 'Question',
-								name: t('faq4Q'),
-								acceptedAnswer: { '@type': 'Answer', text: t('faq4A') }
-							},
-							{
-								'@type': 'Question',
-								name: t('faq5Q'),
-								acceptedAnswer: { '@type': 'Answer', text: t('faq5A') }
-							},
-							{
-								'@type': 'Question',
-								name: t('faq6Q'),
-								acceptedAnswer: { '@type': 'Answer', text: t('faq6A') }
-							}
-						]
-					})
-				}}
-			/>
 		</div>
 	)
 }
