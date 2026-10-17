@@ -32,15 +32,14 @@ import {
 } from 'lucide-react'
 import { marked } from 'marked'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
-import Link from 'next/link'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import Footer from '@/components/Footer'
-import LocaleSwitcher from '@/components/ui/language-switcher'
+import SiteHeader from '@/components/SiteHeader'
 
 import { useToast } from '@/hooks/use-toast'
 import { HOME_FAQ_IDS } from '@/lib/aeo-jsonld'
+import { collectMarkdownFiles } from '@/lib/file-input'
 
 // Configure marked with GFM support
 marked.setOptions({
@@ -182,6 +181,10 @@ export default function Home() {
 	const [previewMode, setPreviewMode] = useState<'rendered' | 'source'>('rendered')
 	const [isPreviewOpen, setIsPreviewOpen] = useState(false)
 	const [activeDragId, setActiveDragId] = useState<string | null>(null)
+	// Native HTML5 file/folder drop state. Kept separate from dnd-kit (which
+	// uses pointer events for internal reordering) so the two never collide.
+	const [isDragActive, setIsDragActive] = useState(false)
+	const dragDepth = useRef(0)
 	const previewScrollRef = useRef<HTMLDivElement>(null)
 	const { toast } = useToast()
 
@@ -254,14 +257,12 @@ export default function Home() {
 			reader.readAsText(file)
 		})
 
-	const handleFilesSelected = useCallback(
-		async (event: React.ChangeEvent<HTMLInputElement>) => {
-			const selectedFiles = Array.from(event.target.files || [])
-			event.target.value = ''
-			if (!selectedFiles.length) return
-
+	// Shared ingest for both click-to-select and drag-and-drop.
+	const addFiles = useCallback(
+		async (fileList: File[]) => {
+			if (!fileList.length) return
 			try {
-				const loadedFiles = await Promise.all(selectedFiles.map(readFile))
+				const loadedFiles = await Promise.all(fileList.map(readFile))
 				setFiles(current => [...current, ...loadedFiles])
 				setIsPreviewOpen(true)
 			} catch (error) {
@@ -272,8 +273,77 @@ export default function Home() {
 				})
 			}
 		},
+		// readFile is redefined each render but only depends on stable inputs.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[t, toast]
 	)
+
+	const handleFilesSelected = useCallback(
+		async (event: React.ChangeEvent<HTMLInputElement>) => {
+			const selectedFiles = Array.from(event.target.files || [])
+			event.target.value = ''
+			await addFiles(selectedFiles)
+		},
+		[addFiles]
+	)
+
+	// ── Drag-and-drop upload (native HTML5; folders via webkitGetAsEntry) ──────
+
+	const handleDragEnter = useCallback((event: React.DragEvent) => {
+		// Only treat actual file drags as active (ignore internal text drags etc.).
+		if (!Array.from(event.dataTransfer.types).includes('Files')) return
+		event.preventDefault()
+		dragDepth.current += 1
+		setIsDragActive(true)
+	}, [])
+
+	const handleDragOver = useCallback((event: React.DragEvent) => {
+		if (!Array.from(event.dataTransfer.types).includes('Files')) return
+		event.preventDefault()
+		event.dataTransfer.dropEffect = 'copy'
+	}, [])
+
+	const handleDragLeave = useCallback((event: React.DragEvent) => {
+		if (!Array.from(event.dataTransfer.types).includes('Files')) return
+		event.preventDefault()
+		dragDepth.current = Math.max(0, dragDepth.current - 1)
+		if (dragDepth.current === 0) setIsDragActive(false)
+	}, [])
+
+	const handleDrop = useCallback(
+		async (event: React.DragEvent) => {
+			if (!Array.from(event.dataTransfer.types).includes('Files')) return
+			event.preventDefault()
+			dragDepth.current = 0
+			setIsDragActive(false)
+			const collected = await collectMarkdownFiles(event.dataTransfer)
+			if (!collected.length) {
+				toast({
+					variant: 'destructive',
+					title: t('dropNoMarkdown')
+				})
+				return
+			}
+			await addFiles(collected.map(item => item.file))
+		},
+		[addFiles, t, toast]
+	)
+
+	// Prevent the browser from navigating to (opening) a file dropped outside
+	// the drop zone. The panel's own onDrop stops propagation for valid drops.
+	useEffect(() => {
+		const prevent = (event: DragEvent) => {
+			if (Array.from(event.dataTransfer?.types || []).includes('Files')) {
+				event.preventDefault()
+			}
+		}
+		window.addEventListener('dragover', prevent)
+		window.addEventListener('drop', prevent)
+		return () => {
+			window.removeEventListener('dragover', prevent)
+			window.removeEventListener('drop', prevent)
+		}
+	}, [])
 
 	const handleRemoveFile = (id: string) => {
 		setFiles(current => current.filter(file => file.id !== id))
@@ -346,7 +416,9 @@ export default function Home() {
 		const url = URL.createObjectURL(blob)
 		const a = document.createElement('a')
 		a.href = url
-		a.download = 'merged.md'
+		const now = new Date()
+		const datePrefix = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
+		a.download = `${datePrefix}-merged.md`
 		document.body.appendChild(a)
 		a.click()
 		document.body.removeChild(a)
@@ -367,31 +439,7 @@ export default function Home() {
 
 	return (
 		<div className='min-h-screen bg-gray-50 dark:bg-gray-900'>
-			<header className='fixed left-0 right-0 top-0 z-10 bg-white shadow-sm dark:bg-gray-800'>
-				<div className='container mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 font-mono text-sm sm:px-6 lg:px-8'>
-					<Link
-						href='https://www.mergemarkdown.com'
-						className='flex items-center gap-2'
-					>
-						<div className='relative h-7 w-12'>
-							<Image
-								src='/logo.svg'
-								alt='Merge Markdown Logo'
-								width={36}
-								height={36}
-								className='object-contain'
-								priority
-							/>
-						</div>
-						<span className='hidden text-lg font-semibold text-gray-800 sm:block dark:text-gray-100'>
-							Merge Markdown
-						</span>
-					</Link>
-					<div className='flex items-center'>
-						<LocaleSwitcher />
-					</div>
-				</div>
-			</header>
+			<SiteHeader />
 
 			<main className='mx-auto mb-4 max-w-7xl px-4 pb-8 pt-24 sm:px-6 lg:px-8'>
 				<div className='mb-6 flex flex-col gap-4 text-center'>
@@ -403,13 +451,34 @@ export default function Home() {
 
 				<div id='main-panels-grid' className='grid gap-4 md:grid-cols-[minmax(0,0.46fr)_minmax(0,0.54fr)]'>
 					{/* ── Left panel: file list ── */}
-					<section className='rounded-lg bg-white p-5 shadow-sm dark:bg-gray-800'>
+					<section
+						onDragEnter={handleDragEnter}
+						onDragOver={handleDragOver}
+						onDragLeave={handleDragLeave}
+						onDrop={handleDrop}
+						className='relative rounded-lg bg-white p-5 shadow-sm dark:bg-gray-800'
+					>
+						{/* Drop overlay: purely visual, never intercepts the drop. */}
+						{isDragActive && (
+							<div className='pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 rounded-lg border-2 border-dashed border-blue-400 bg-blue-50/90 text-center dark:bg-blue-950/70'>
+								<Upload className='h-10 w-10 text-blue-500 dark:text-blue-300' />
+								<p className='px-4 text-base font-medium text-blue-700 dark:text-blue-200'>
+									{t('dropOverlayTitle')}
+								</p>
+							</div>
+						)}
 						<div className='flex flex-col gap-5'>
-							<label className='flex h-32 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 transition-colors hover:border-gray-400 dark:border-gray-600 dark:hover:border-gray-500'>
+							<label
+								className={`flex h-32 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed transition-colors ${
+									isDragActive
+										? 'border-blue-400 bg-blue-50 dark:border-blue-500 dark:bg-blue-950/30'
+										: 'border-gray-300 hover:border-gray-400 dark:border-gray-600 dark:hover:border-gray-500'
+								}`}
+							>
 								<div className='flex flex-col items-center justify-center px-4 py-6 text-center'>
 									<Upload className='mb-3 h-8 w-8 text-gray-400' />
 									<p className='text-sm text-gray-500 dark:text-gray-400'>
-										{t('selectFiles')}
+										{isDragActive ? t('dropHint') : t('selectFiles')}
 									</p>
 								</div>
 								<input

@@ -1,9 +1,12 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 
 export default function Footer() {
 	const t = useTranslations('footer')
+	const locale = useLocale()
+	const changelogHref = locale === 'en' ? '/changelog' : `/${locale}/changelog`
 	return (
 		<footer className='mt-8 border-t border-gray-200 bg-gray-50 py-6 dark:border-gray-800 dark:bg-gray-900'>
 			<div className='container mx-auto px-4'>
@@ -11,6 +14,13 @@ export default function Footer() {
 					<p className='text-gray-600'>{t('creator')}</p>
 
 					<div className='flex items-center gap-4'>
+						<Link
+							href={changelogHref}
+							className='text-gray-600 hover:text-blue-600 transition-colors'
+						>
+							{t.has('changelog') ? t('changelog') : 'Changelog'}
+						</Link>
+
 						<a
 							href='https://x.com/getgater'
 							target='_blank'

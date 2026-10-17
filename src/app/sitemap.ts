@@ -52,5 +52,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		})),
 	);
 
-	return [...localePages, ...guidePages];
+	const changelogPages: MetadataRoute.Sitemap = locales.map((locale) => ({
+		url: localizedUrl(locale, '/changelog'),
+		lastModified: SITE_LAST_MODIFIED,
+		changeFrequency: 'monthly' as const,
+		priority: 0.5,
+		alternates: {
+			languages: Object.fromEntries(
+				locales.map((l) => [l, localizedUrl(l, '/changelog')]),
+			),
+		},
+	}));
+
+	return [...localePages, ...guidePages, ...changelogPages];
 }

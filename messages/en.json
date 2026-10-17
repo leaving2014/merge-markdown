@@ -2,6 +2,9 @@
 	"Index": {
 		"title": "Merge Markdown",
 		"selectFiles": "Select Markdown Files",
+		"dropHint": "Drop Markdown files or folders here",
+		"dropOverlayTitle": "Release to add files",
+		"dropNoMarkdown": "No Markdown files (.md, .markdown, .txt) found in what you dropped.",
 		"merge": "Merge",
 		"download": "Download Merged File",
 		"fileReadError": "Failed to read file, please try again.",
@@ -57,6 +60,7 @@
 	},
 	"footer": {
 		"creator": "Created with ❤️ by GaterGet",
+		"changelog": "Changelog",
 		"twitter": "@gaterget",
 		"coffee": "Buy Me a Coffee",
 		"github": "GitHub"
